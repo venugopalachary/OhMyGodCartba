@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "671172822248",
+    "project_id": "omgcart-a2032",
+    "storage_bucket": "omgcart-a2032.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671172822248:android:1eedab740f40a6bc30b55d",
+        "android_client_info": {
+          "package_name": "com.ohmygodcart.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671172822248-mevacp2bfukj6qj4q2vc5rm6lpreh7tr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa0EuF6hpp0q84-nIa_U-7uEmSNMX2On4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671172822248-mevacp2bfukj6qj4q2vc5rm6lpreh7tr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

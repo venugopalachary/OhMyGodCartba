@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activites.DetailedActivity">
+
+    <ImageView
+        android:id="@+id/detailed_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="centerCrop"/>
+
+    <androidx.cardview.widget.CardView
+        android:translationY="-50dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation= "10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailed_img">
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+          <RelativeLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:id="@+id/detailed_name"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="8dp"
+                  android:text="Product Name"
+                  android:textColor="@color/black"
+                  android:textSize="15sp"
+                  android:textStyle="bold" />
+
+              <TextView
+                  android:id="@+id/rating"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginTop="8dp"
+                  android:text="4.0"
+                  android:textColor="@color/black"
+                  android:textSize="16sp" />
+
+                  <RatingBar
+                      android:id="@+id/my_rating"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="8dp"
+                      android:isIndicator="true"
+                      android:numStars="5"
+                      android:stepSize="0.1"
+                      style="?android:attr/ratingBarStyleSmall"
+                      android:layout_alignParentRight="true"/>
+
+          </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/detailed_desc"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OH MY GOD CART is an online delivery app for vegetables and groceries from farm to your home directly. We are very particular in choosing fresh, natural,chemical-free and organic vegetables to your doorstep. Our intention is to drop-ship all products for the best and comfortable prices."
+                />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Price"
+              android:textSize="28sp"
+              android:layout_gravity="center"
+              android:layout_marginTop="10dp"
+              android:textColor="@color/black"
+              android:textStyle="bold"
+              android:fontFamily="@font/amethysta"
+
+              />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                >
+
+                <TextView
+                    android:id="@+id/detailed_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/amethysta"
+                    android:textColor="@color/purple"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/amethysta"
+                    android:textColor="@color/purple"
+
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+   </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/cardview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/bs"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_marginRight="7dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/plus"
+                android:id="@+id/add_item"/>
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="30sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_marginRight="7dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/minus"
+                android:id="@+id/remove_item"/>
+
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/bs"
+            android:id="@+id/add_to_cart"
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/pink"
+            android:drawableLeft="@drawable/shoppingcart"
+            android:drawableTint="@color/white"
+            android:padding="14dp"
+            android:text=" Add To Cart "
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            ></Button>
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/add_to_cart"
+            android:id="@+id/buy_now"
+            android:layout_width="133dp"
+            android:layout_height="53dp"
+            android:backgroundTint="@color/pink"
+            android:drawableLeft="@drawable/shoppingcart"
+            android:drawableTint="@color/white"
+            android:padding="14dp"
+            android:text=" Buy Now "
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="128dp"
+            tools:layout_editor_absoluteY="771dp"></Button>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
