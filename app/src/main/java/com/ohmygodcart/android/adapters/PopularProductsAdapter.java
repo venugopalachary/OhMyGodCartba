@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,10 @@ public class PopularProductsAdapter extends RecyclerView.Adapter<PopularProducts
     private List<PopularProductsModel> popularProductsModelList;
 
     public PopularProductsAdapter(Context context, List<PopularProductsModel> popularProductsModelList) {
+        this.context = context;
+        this.popularProductsModelList = popularProductsModelList;
     }
+
 
     @NonNull
     @Override
@@ -33,8 +37,10 @@ public class PopularProductsAdapter extends RecyclerView.Adapter<PopularProducts
         return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.popular_items,parent,false));
     }
 
+   
+
     @Override
-    public void onBindViewHolder(@NonNull PopularProductsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         Glide.with(context).load(popularProductsModelList.get(position).getImg_url()).into(holder.imageView);
          holder.name.setText(popularProductsModelList.get(position).getName());

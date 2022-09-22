@@ -1,5 +1,6 @@
 package com.ohmygodcart.android.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class ShowAllAdapter extends RecyclerView.Adapter<ShowAllAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShowAllAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ShowAllAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
          Glide.with(context).load(list.get(position).getImg_url()).into(holder.mItemImage);
          holder.mCost.setText("$"+String.valueOf(list.get(position).getPrice()));

@@ -16,7 +16,19 @@
         android:theme="@style/Theme.OhMyGodCart"
         tools:targetApi="31">
         <activity
-            android:name=".ShowAllActivity"
+            android:name=".activites.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.AddAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.AddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activites.ShowAllActivity"
             android:exported="false" />
         <activity
             android:name=".activites.SplashScreen"
@@ -51,13 +63,14 @@
         <activity
             android:name=".activites.DetailedActivity"
             android:exported="false" />
-        <activity
-            android:name=".activites.ShowAllActivity"
-            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.razorpay.Apikey"
+            android:value="rzp_live_yoggonx4XZrTXB" />
     </application>
 
 </manifest>

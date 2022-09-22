@@ -198,9 +198,9 @@ public class HomeFragment extends Fragment {
         popularRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL,false));
         popularProductsModelList= new ArrayList<>();
         popularProductsAdapter = new PopularProductsAdapter(getContext(),popularProductsModelList);
-        popularRecyclerview.setAdapter(newProductsAdapter);
+        popularRecyclerview.setAdapter(popularProductsAdapter);
 
-        db.collection("Vegetables")
+        db.collection("Fruits")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

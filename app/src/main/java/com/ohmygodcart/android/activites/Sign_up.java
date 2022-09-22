@@ -33,7 +33,7 @@ public class Sign_up extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        if(mAuth.getCurrentUser()!=null){
+       if(mAuth.getCurrentUser()!=null){
             startActivity(new Intent(Sign_up.this,MainActivity.class));
             finish();
         }

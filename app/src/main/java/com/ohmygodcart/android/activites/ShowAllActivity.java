@@ -33,6 +33,8 @@ public class ShowAllActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_all);
 
+        String type= getIntent().getStringExtra("type");
+
         firestore=FirebaseFirestore.getInstance();
 
         recyclerView = findViewById(R.id.show_all_rec);
@@ -41,21 +43,83 @@ public class ShowAllActivity extends AppCompatActivity {
         showAllAdapter = new ShowAllAdapter(this,showAllModelList);
         recyclerView.setAdapter(showAllAdapter);
 
-          firestore.collection("Vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-              @Override
-              public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
-                  if(task.isSuccessful())
-                  {
-                      for(DocumentSnapshot doc : task.getResult().getDocuments())
-                      {
-                       ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
-                       showAllModelList.add(showAllModel);
-                       showAllAdapter.notifyDataSetChanged();
-                      }
-                  }
-              }
-          });
+
+
+        firestore.collection("Vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                if(task.isSuccessful())
+                {
+                    for(DocumentSnapshot doc : task.getResult().getDocuments())
+                    {
+                        ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                        showAllModelList.add(showAllModel);
+                        showAllAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+
+
+        /*if(type == null && type.isEmpty())
+        {
+
+        }
+
+
+
+
+        if(type == null && type.equalsIgnoreCase("Vegetables"))
+        {
+
+            firestore.collection("Vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    if(task.isSuccessful())
+                    {
+                        for(DocumentSnapshot doc : task.getResult().getDocuments())
+                        {
+                            ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                            showAllModelList.add(showAllModel);
+                            showAllAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            });
+        }
+
+
+        if(type == null && type.equalsIgnoreCase("Fruits"))
+        {
+
+            firestore.collection("Fruits").whereEqualTo("type","fruits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+
+                    if(task.isSuccessful())
+                    {
+                        for(DocumentSnapshot doc : task.getResult().getDocuments())
+                        {
+                            ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
+                            showAllModelList.add(showAllModel);
+                            showAllAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            });
+        }
+
+
+*/
+
+
+
+
+
+
 
     }
 }
