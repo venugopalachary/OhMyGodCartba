@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,6 +42,7 @@ public class AddressActivity extends AppCompatActivity implements  AddressAdapte
 
     String mAddress = " " ;
 
+    int amount=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,6 @@ public class AddressActivity extends AppCompatActivity implements  AddressAdapte
             @Override
             public void onClick(View v) {
 
-                double amount=0.0;
 
                 if(obj instanceof NewProductsModel){
                     NewProductsModel newProductsModel =(NewProductsModel) obj;
@@ -104,6 +105,7 @@ public class AddressActivity extends AppCompatActivity implements  AddressAdapte
 
                 Intent intent = new Intent(AddressActivity.this,PaymentActivity.class);
                 intent.putExtra("amount",amount);
+                Toast.makeText(AddressActivity.this, "amount="+amount, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
             }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,6 +35,7 @@ public class ShowAllActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_all);
 
         String type= getIntent().getStringExtra("type");
+        Toast.makeText(getApplicationContext(), "type"+type, Toast.LENGTH_SHORT).show();
 
         firestore=FirebaseFirestore.getInstance();
 
@@ -46,32 +48,18 @@ public class ShowAllActivity extends AppCompatActivity {
 
 
 
-        firestore.collection("Vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
-                if(task.isSuccessful())
-                {
-                    for(DocumentSnapshot doc : task.getResult().getDocuments())
-                    {
-                        ShowAllModel showAllModel = doc.toObject(ShowAllModel.class);
-                        showAllModelList.add(showAllModel);
-                        showAllAdapter.notifyDataSetChanged();
-                    }
-                }
-            }
-        });
 
 
-        /*if(type == null && type.isEmpty())
+/*
+        if(type == null && type.isEmpty())
         {
 
-        }
+        }*/
 
 
 
 
-        if(type == null && type.equalsIgnoreCase("Vegetables"))
+        if( type.equalsIgnoreCase("Vegetables"))
         {
 
             firestore.collection("Vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -92,10 +80,10 @@ public class ShowAllActivity extends AppCompatActivity {
         }
 
 
-        if(type == null && type.equalsIgnoreCase("Fruits"))
+        if(type.equalsIgnoreCase("Fruits"))
         {
 
-            firestore.collection("Fruits").whereEqualTo("type","fruits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            firestore.collection("Fruits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
@@ -113,7 +101,7 @@ public class ShowAllActivity extends AppCompatActivity {
         }
 
 
-*/
+
 
 
 

@@ -22,7 +22,7 @@ import java.awt.font.TextAttribute;
 public class PaymentActivity extends AppCompatActivity implements PaymentResultListener  {
 
     TextView subTotal,discount,shipping,total;
-    double amount= 0.0;
+    int amount;
     Button paymentBtn;
 
     @Override
@@ -31,7 +31,7 @@ public class PaymentActivity extends AppCompatActivity implements PaymentResultL
         setContentView(R.layout.activity_payment);
 
 
-        amount=getIntent().getDoubleExtra("amount",0.0);
+        amount=getIntent().getIntExtra("amount",0);
 
        subTotal=findViewById(R.id.sub_total);
        discount=findViewById(R.id.discount);

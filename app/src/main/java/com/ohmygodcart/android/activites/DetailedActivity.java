@@ -55,10 +55,13 @@ public class DetailedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailed);
 
 
+        Object obj = getIntent().getSerializableExtra("item");
+
+
         firestore=FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
 
-        final Object obj = getIntent().getSerializableExtra("detailed");
+        //final Object obj = getIntent().getSerializableExtra("detailed");
 
 
         if(obj instanceof NewProductsModel)
@@ -164,7 +167,22 @@ public class DetailedActivity extends AppCompatActivity {
         buyNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailedActivity.this,AddressActivity.class));
+                Intent intent=new Intent(DetailedActivity.this,AddressActivity.class);
+
+                if(newProductsModel!=null)
+                {
+                    intent.putExtra("item",newProductsModel);
+                }
+                if(popularProductsModel!=null)
+                {
+                    intent.putExtra("item",popularProductsModel);
+                }
+                if(showAllModel!=null)
+                {
+                    intent.putExtra("item",showAllModel);
+                }
+                    startActivity(intent);
+
             }
         });
 
@@ -253,8 +271,9 @@ public class DetailedActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<DocumentReference> task) {
 
                 Toast.makeText(DetailedActivity.this,"Added To A Cart",Toast.LENGTH_LONG);
-
-                finish();
+                Intent intent=new Intent(DetailedActivity.this,CartActivity.class);
+                startActivity(intent);
+                //finish();
 
             }
         });

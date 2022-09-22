@@ -103,6 +103,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent=new Intent(getContext(), ShowAllActivity.class);
+                intent.putExtra("type","Fruits");
                 startActivity(intent);
             }
         });
@@ -112,6 +113,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
                 Intent intent=new Intent(getContext(), ShowAllActivity.class);
+                intent.putExtra("type","Vegetables");
                 startActivity(intent);
             }
         });

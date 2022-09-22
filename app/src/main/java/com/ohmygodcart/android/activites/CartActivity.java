@@ -11,7 +11,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,6 +40,7 @@ public class CartActivity extends AppCompatActivity {
     MyCartAdapter cartAdapter;
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
+    Button buy_now;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,7 @@ public class CartActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,new IntentFilter("MyTotalAmount"));
          overAllAmount=findViewById(R.id.textView3);
         recyclerView = findViewById(R.id.cart_rec);
+        buy_now=findViewById(R.id.buy_now);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartModelList = new ArrayList<>();
         cartAdapter = new MyCartAdapter(this, cartModelList);
@@ -78,6 +83,14 @@ public class CartActivity extends AppCompatActivity {
                 });
 
 
+        buy_now.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(CartActivity.this,AddressActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
